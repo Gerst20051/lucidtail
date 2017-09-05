@@ -1,3 +1,5 @@
+var MAX_DETAILS = 10000;
+
 function clearResults() {
     $("#results").empty();
 }
@@ -106,4 +108,8 @@ function addSyntaxHighlightingToNode(node) {
         }
     }
 }
+
+setInterval(function() {
+    $("#results").children("details:gt(" + MAX_DETAILS + ")").remove();
+}, 10E3);
 
